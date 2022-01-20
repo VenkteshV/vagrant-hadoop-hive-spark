@@ -10,6 +10,8 @@ Vagrant project to spin up a single virtual machine running:
 * HBase 
 * Spark  
 * Tez 
+* Kafka
+* Flume
 
 # Version Information
 The versions of the above components that the VM is provisioned with are defined in the file `scripts/versions.sh`
@@ -149,6 +151,31 @@ vagrant destroy
 
 Then issue `vagrant up` command as usual.
 
+#  Kafka
+
+Kafka is automatically setup on starting the Vagrant. TO test the setup follow the following instructions. 
+$ vagrant up --provider=virtualbox
+$ vagrant ssh
+$ sudo -s if needed
+$ cd kafka_2.12-2.8.1
+$ chmod 777 config/server-1.properties
+$ chmod 777 config/server-2.properties
+$ in config/server-1.properties change 
+broker.id=1, listeners=PLAINTEXT://:9093, log.dirs=/tmp/kafka-logs-1
+$ in config/server-2.properties change 
+broker.id=2, listeners=PLAINTEXT://:9094, log.dirs=/tmp/kafka-logs-2
+$ Now in one tab run bin/kafka-server-start.sh config/server.properties 
+$ In another tab run bin/kafka-server-start.sh config/server-1.properties
+$ In another tab run bin/kafka-server-start.sh config/server-2.properties
+$ Create topic with replication factor of 3 : bin/kafka-topics.sh --create --bootstrap-server localhost:9092 --replication-factor 3 --partitions 1 --topic my-replicated-topic
+$ Start the consumer bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic my-replicated-topic --from-beginning
+$ Now in a new tab run sh bin/kafka-console-producer.sh -broker-list localhost:9092 -topic my-replicated-topic
+
+Tyoe some messages in the terminal window and you should see the messages in the consumer window. 
+
+
+
+
 # To shutdown services cleanly
 
 ```
@@ -185,6 +212,7 @@ The file [DEVELOP.md](DEVELOP.md) contains some tips for developers.
 
 # Credits
 
+Thanks to Martin Robson  (https://github.com/martinprobson/vagrant-hadoop-hive-spark) for making the script open source
 Thanks to [Alex Holmes](https://github.com/alexholmes) for the great work at
 (https://github.com/alexholmes/vagrant-hadoop-spark-hive)
 
