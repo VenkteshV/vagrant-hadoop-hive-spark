@@ -154,6 +154,7 @@ Then issue `vagrant up` command as usual.
 #  Kafka
 
 Kafka is automatically setup on starting the Vagrant. TO test the setup follow the following instructions. 
+```
 $ vagrant up --provider=virtualbox
 $ vagrant ssh
 $ sudo -s if needed
@@ -170,7 +171,7 @@ $ In another tab run bin/kafka-server-start.sh config/server-2.properties
 $ Create topic with replication factor of 3 : bin/kafka-topics.sh --create --bootstrap-server localhost:9092 --replication-factor 3 --partitions 1 --topic my-replicated-topic
 $ Start the consumer bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic my-replicated-topic --from-beginning
 $ Now in a new tab run sh bin/kafka-console-producer.sh -broker-list localhost:9092 -topic my-replicated-topic
-
+```
 Tyoe some messages in the terminal window and you should see the messages in the consumer window. 
 
 
