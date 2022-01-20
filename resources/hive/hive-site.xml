@@ -4,7 +4,7 @@
 <configuration>
     <property>
         <name>hive.metastore.uris</name>
-        <value>thrift://node1:9083</value>
+        <value>thrift://node2:9083</value>
         <description>IP address (or fully-qualified domain name) and port of the metastore host</description>
     </property>
 
@@ -15,7 +15,7 @@
     </property>
     <!-- <property>
         <name>javax.jdo.option.ConnectionURL</name>
-	<value>jdbc:mysql://node1/hive_metastore?createDatabaseIfNotExist=true</value>
+	<value>jdbc:mysql://node2/hive_metastore?createDatabaseIfNotExist=true</value>
         <description>JDBC connect string for a JDBC metastore</description>
     </property> -->
     <property>

@@ -5,7 +5,7 @@
 
   <property>
     <name>tez.lib.uris</name>
-    <value>hdfs://node1:8020/user/tez/share/tez.tar.gz</value>
+    <value>hdfs://node2:8020/user/tez/share/tez.tar.gz</value>
     <type>string</type>
   </property>
 

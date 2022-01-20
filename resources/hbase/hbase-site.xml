@@ -23,11 +23,11 @@
 <configuration>
 	<property>
 		<name>hbase.rootdir</name>
-		<value>hdfs://node1/user/hbase</value>
+		<value>hdfs://node2/user/hbase</value>
 	</property>
 	<property>
 		<name>hbase.zookeeper.property.dataDir</name>
-		<value>hdfs://node1/user/zookeeper</value>
+		<value>hdfs://node2/user/zookeeper</value>
 	</property>
 	<property>
 		<name>hbase.zookeeper.quorum</name>

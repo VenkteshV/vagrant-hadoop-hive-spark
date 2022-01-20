@@ -64,7 +64,7 @@ on the host: -
 docker container ls
 
 CONTAINER ID        IMAGE                                      COMMAND               CREATED             STATUS              PORTS                                                                                                                    NAMES
-a44ca8ded5b8        nishidayuya/docker-vagrant-ubuntu:xenial   "/usr/sbin/sshd -D"   About an hour ago   Up About an hour    0.0.0.0:4040->4040/tcp, 0.0.0.0:8080->8080/tcp, 0.0.0.0:8088->8088/tcp, 0.0.0.0:9083->9083/tcp, 127.0.0.1:2222->22/tcp   vagrant-hadoop-hive-spark_node1_1539427474
+a44ca8ded5b8        nishidayuya/docker-vagrant-ubuntu:xenial   "/usr/sbin/sshd -D"   About an hour ago   Up About an hour    0.0.0.0:4040->4040/tcp, 0.0.0.0:8080->8080/tcp, 0.0.0.0:8088->8088/tcp, 0.0.0.0:9083->9083/tcp, 127.0.0.1:2222->22/tcp   vagrant-hadoop-hive-spark_node2_1539427474
 ```
 
 then
@@ -76,7 +76,7 @@ docker inspect a44ca8ded5b8 | grep -i ipaddress
                     "IPAddress": "172.17.0.2",
 ```
 
-So, in the case above the container's ip address is 172.17.0.2 - you can substitute this address if 'node1' does not work.
+So, in the case above the container's ip address is 172.17.0.2 - you can substitute this address if 'node2' does not work.
 
 # Work out the ip-address of the virtualbox VM
 The ip address of the virtualbox machine should be `10.211.55.101`
@@ -104,14 +104,14 @@ to
 
 Here are some useful links to navigate to various UI's:
 
-* YARN resource manager:  (http://node1:8088)
-* HBase: (http://node1:16010)
-* Job history:  (http://node1:19888/jobhistory/)
-* HDFS: (http://node1:50070/dfshealth.html)
-* Spark history server: (http://node1:18080)
-* Spark context UI (if a Spark context is running): (http://node1:4040)
+* YARN resource manager:  (http://node2:8088)
+* HBase: (http://node2:16010)
+* Job history:  (http://node2:19888/jobhistory/)
+* HDFS: (http://node2:50070/dfshealth.html)
+* Spark history server: (http://node2:18080)
+* Spark context UI (if a Spark context is running): (http://node2:4040)
 
-Substitute the ip address of the container or virtualbox VM for `node1` if necessary.
+Substitute the ip address of the container or virtualbox VM for `node2` if necessary.
 
 # Shared Folder
 
