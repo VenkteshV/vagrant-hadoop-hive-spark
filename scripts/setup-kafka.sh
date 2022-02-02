@@ -5,6 +5,7 @@
 source "/vagrant/scripts/common.sh"
 function setupKafka {
 	echo "installing Kafka from remote"
+	sudo apt-get install wget
 	wget https://archive.apache.org/dist/kafka/2.8.1/kafka_2.12-2.8.1.tgz
 	tar -xzf kafka_2.12-2.8.1.tgz
 }

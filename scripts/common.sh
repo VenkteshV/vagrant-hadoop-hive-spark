@@ -88,7 +88,7 @@ FLUME_RES_DIR=/vagrant/resources/flume
 # Zeppelin 
 ZEPPELIN_RELEASE=zeppelin-${ZEPPELIN_VERSION}-bin-netinst
 ZEPPELIN_ARCHIVE=${ZEPPELIN_RELEASE}.tgz
-ZEPPELIN_MIRROR_DOWNLOAD=http://www-eu.apache.org/dist/zeppelin/zeppelin-${ZEPPELIN_VERSION}/${ZEPPELIN_ARCHIVE}
+ZEPPELIN_MIRROR_DOWNLOAD= https://dlcdn.apache.org/zeppelin/zeppelin-${ZEPPELIN_VERSION}/${ZEPPELIN_ARCHIVE}
 ZEPPELIN_RES_DIR=/vagrant/resources/zeppelin
 ZEPPELIN_TARGET=/home/ubuntu
 
