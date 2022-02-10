@@ -7,6 +7,8 @@ Vagrant.require_version '>= 1.4.3'
 VAGRANTFILE_API_VERSION = '2'.freeze
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+    config.vm.synced_folder '.', '/vagrant', disabled: true
+
     config.vm.provider "docker" do |d|
 	    d.image = "nishidayuya/docker-vagrant-ubuntu:xenial"
 	    d.has_ssh = true
